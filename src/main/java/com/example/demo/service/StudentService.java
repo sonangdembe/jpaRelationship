@@ -18,18 +18,9 @@ public class StudentService {
 
     @Transactional
     public void createStudent(Student student, long id){
-        Department department = departmentRepository.getDepartmentById(id);
-        student.setDepartment(department);
-        studentRepository.createStudent(student);
+
     }
 
 
-    @Transactional
-    public void createStudent(Student student, String deptName){
-        Department department = new Department();
-        department.setName(deptName);
-        departmentRepository.createStudent(department);
-        student.setDepartment(department);
-        studentRepository.createStudent(student);
-    }
+
 }

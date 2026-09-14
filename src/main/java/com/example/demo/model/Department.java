@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -20,7 +21,10 @@ public class Department {
     private long id;
     private String name;
 
-    @OneToMany(mappedBy = "department")
-    private List<Student> students;
+    @OneToMany(
+            mappedBy = "department",
+            cascade = CascadeType.PERSIST
+    )
+    private List<Student> students = new ArrayList<>();
 
 }

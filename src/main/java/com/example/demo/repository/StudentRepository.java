@@ -11,8 +11,9 @@ public class StudentRepository {
     @PersistenceContext
     private EntityManager entityManager;
 
-    public void createStudent(Student student){
+    public void save(Student student) {
         entityManager.persist(student);
     }
+
 
 }

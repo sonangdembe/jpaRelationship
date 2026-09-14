@@ -11,14 +11,7 @@ public class DepartmentRepository {
     @PersistenceContext
     private EntityManager entityManager;
 
-    public void save(Department department) {
-        entityManager.persist(department);
-    }
-
-    public Department getDepartmentById(long id){
-       return entityManager.find(Department.class, id);
-    }
-
-    public void createStudent(Department department) {
-    }
+   public void save(Department department){
+       entityManager.persist(department);
+   }
 }
