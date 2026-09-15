@@ -4,10 +4,7 @@ package com.example.demo.controller;
 import com.example.demo.model.Department;
 import com.example.demo.service.DepartmentService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/department")
@@ -22,5 +19,12 @@ public class DepartmentController {
    public ResponseEntity<String> createDepartment(@RequestBody  Department department) {
         departmentService.createDepartment(department);
         return ResponseEntity.ok("Done");
+   }
+
+   @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteDepartment(@PathVariable Long id) {
+
+        departmentService.removeDepartment(id);
+       return ResponseEntity.ok("Done");
    }
 }

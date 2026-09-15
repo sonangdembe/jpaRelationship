@@ -37,11 +37,18 @@ public class DepartmentService {
         Student s4 = new Student();
         s4.setName("rita");
         s4.setDepartment(department);
-department.getStudents().addAll(List.of(s1,s2,s3,s4));
-       departmentRepository.save(department);
+        department.getStudents().addAll(List.of(s1, s2, s3, s4));
+        departmentRepository.save(department);
 //       studentRepository.save(s1);
 //       studentRepository.save(s2);
 //       studentRepository.save(s3);
 //       studentRepository.save(s4);
+
+    }
+
+    @Transactional
+        public void removeDepartment(Long deptId){
+        Department department = departmentRepository.findById(deptId);
+        departmentRepository.removeDepartment(department);
     }
 }
